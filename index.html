@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Concierge AI - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input {
+      margin-top: 20px;
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCD5y1PdZbAkfYnRplmqE7HpTPczSLDzx4",
+      authDomain: "concierge-ai-8fbe0.firebaseapp.com",
+      projectId: "concierge-ai-8fbe0",
+      storageBucket: "concierge-ai-8fbe0.appspot.com",
+      messagingSenderId: "1049095778254",
+      appId: "1:1049095778254:web:852076d200774b58d8c59f",
+      measurementId: "G-833QFHK021"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    window.loginWithGoogle = () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          const email = user.email;
+          const token = document.getElementById("airtable_token").value;
+          localStorage.setItem("user_email", email);
+          localStorage.setItem("airtable_token", token);
+          window.location.href = "https://your-app-name.streamlit.app"; // Replace with your real Streamlit app URL
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    };
+  </script>
+</head>
+<body>
+  <h1>Welcome to Concierge AI</h1>
+  <p>Your personal assistant for professional restaurant & service bookings.</p>
+  <input type="text" id="airtable_token" placeholder="Enter your Airtable token" />
+  <br /><br />
+  <button onclick="loginWithGoogle()">Log in with Google</button>
+</body>
+</html>
