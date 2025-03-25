@@ -1,0 +1,28 @@
+# macOS system files
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Env files
+.env
+.env.*
+
+# Dev containers
+.devcontainer/
+
+# Local folders you don’t want to track
+public_homepage/
+
+# Logs or temp
+*.log
+*.tmp
+
+# Streamlit secrets
+.streamlit/secrets.toml
