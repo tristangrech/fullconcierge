@@ -1,0 +1,13 @@
+streamlit
+langchain
+langchain-community
+openai
+pandas
+faiss-cpu
+pyairtable
+python-dotenv
+tiktoken
+langdetect
+deep-translator
+xhtml2pdf
+jinja2

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Proposal</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        h1 { color: #2E86C1; }
+        .details { margin-top: 20px; }
+        .block { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Proposal – My Paris Concierge</h1>
+    <div class="details">
+        <div class="block"><strong>Client:</strong> {{ client_name }}</div>
+        <div class="block"><strong>Request:</strong> {{ client_request }}</div>
+        <div class="block"><strong>Selected Option:</strong> {{ recommendation }}</div>
+        <div class="block"><strong>Date:</strong> {{ date }}</div>
+        <div class="block"><strong>Estimated Budget:</strong> €{{ price }} (excl. commission)</div>
+    </div>
+</body>
+</html>
